@@ -1,0 +1,6 @@
+<div class="">
+  <ul *ngFor="let user of userlist">
+    <li>{{user.username}}</li>
+  </ul>
+  <button (click)="addUsers()" class="btn btn-success" type="button">Add user</button>
+</div>

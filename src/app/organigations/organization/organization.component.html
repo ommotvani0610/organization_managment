@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="organizationNameForm" (ngSubmit)="addOrganization()" class="">
+    <div class="mb-3">
+      <label for="organizationame" class="form-label">Organization Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="organizationName">
+      <span *ngIf="!organizationNameForm.get('organizationName')?.valid && organizationNameForm.get('organizationName')?.touched">please eneter organizations name</span>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!this.organizationNameForm.valid">Add Organization</button>
+  </form>
+</div>

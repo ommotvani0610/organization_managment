@@ -1,0 +1,66 @@
+<div class="container">
+  <form [formGroup]="taskDetailsForm" >
+
+    <div class="mb-3">
+      <label class="form-label" for="tasktype">Task type</label>
+      <select class="form-control" formControlName="tasktype">
+        <option value="feature">Feature</option>
+        <option value="bug">Bug</option>
+        <option value="improvment">Improvment</option>
+        <option value="testing">Testing</option>
+        </select>
+        <span *ngIf="!taskDetailsForm.get('tasktype')?.valid && taskDetailsForm.get('tasktype')?.touched" class="text-danger">please enter valid Task Type</span>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="tasktitle" class="form-label" >Task Title</label>
+      <input type="text" class="form-control" formControlName="tasktitle">
+      <span *ngIf="!taskDetailsForm.get('tasktitle')?.valid && taskDetailsForm.get('tasktitle')?.touched" class="text-danger">please enter valid Task Title</span>
+    </div>
+
+    <div class="mb-3">
+      <label for="taskdescription" class="form-label">Task Description</label>
+      <textarea type="text" class="form-control" formControlName="taskdescription" >
+        </textarea>
+      <span *ngIf="!taskDetailsForm.get('taskdescription')?.valid && taskDetailsForm.get('taskdescription')?.touched" class="text-danger">please enter valid Task Description</span>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="effort">Effort</label>
+      <input type="number" class="form-control" formControlName="effort">
+      <span *ngIf="!taskDetailsForm.get('effort')?.valid && taskDetailsForm.get('effort')?.touched" class="text-danger">please enter your efforts on task</span>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="estimation">Estimation</label>
+      <input type="number" class="form-control" formControlName="estimation">
+      <span *ngIf="!taskDetailsForm.get('estimation')?.valid && taskDetailsForm.get('estimation')?.touched" class="text-danger">please enter estion of task</span>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label" for="taskstatus">Task status</label>
+      <select class="form-control" formControlName="taskstatus">
+        <option value="new">New</option>
+        <option value="inprogress">Inprogress</option>
+        <option value="done">Done</option>
+        </select>
+        <span *ngIf="!taskDetailsForm.get('taskstatus')?.valid && taskDetailsForm.get('taskstatus')?.touched" class="text-danger">please enter task status</span>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label" for="Assign">Assign</label>
+      <select class="form-control" formControlName="Assign">
+        <option value="user">user</option>
+        <option value="organization">organization</option>
+        </select>
+        <span *ngIf="!taskDetailsForm.get('Assign')?.valid && taskDetailsForm.get('Assign')?.touched" class="text-danger">please enter task asign</span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="!this.taskDetailsForm.valid" *ngIf="this.index === -1" (click)="onSubmit()">Add task</button>
+    <button class="btn btn-success" type="submit" *ngIf="this.index !== -1" (click)="updatTaskDetail()">Update</button>
+  </form>
+</div>

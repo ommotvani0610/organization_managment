@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-3">
+      <h3>Organizations</h3>
+      <ul *ngFor="let organization of organizationList">
+        <li>{{organization.organizationName}}</li>
+      </ul>
+    </div>
+
+    <div class="col-3">
+      <h3>user</h3>
+    <app-userslist></app-userslist>
+    </div>
+
+    <div class="col-2">
+      <h3>New</h3>
+      <app-tasklist></app-tasklist>
+      <div>
+        <button class="btn btn-success" (click)="addTask()">Add Task</button>
+      </div>
+    </div>
+
+    <div class="col-2">
+<h3>Inprogress</h3>
+<!-- <app-tasklist></app-tasklist> -->
+    </div>
+
+    <div class="col-2">
+<h3>Done</h3>
+<!-- <app-tasklist></app-tasklist> -->
+    </div>
+
+  </div>
+</div>
