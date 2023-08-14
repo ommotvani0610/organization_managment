@@ -14,10 +14,6 @@ organizations:organizationDatatype[]=[]
 
   constructor() {
     this.organizations = JSON.parse(localStorage.getItem('Organization')!)
-
-    // = Object?.values(organization)
-
-
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

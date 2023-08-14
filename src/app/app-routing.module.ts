@@ -16,7 +16,6 @@ const routes:Routes=[
   {path:'addorganization',component:OrganigationComponent},
   {path:'OrganizationsDashboard', component:OrganizationslistComponent},
   {path:'user',component:UserComponent},
-  // {path:'task',component:TaskComponent},
   {path:'task/edit',component:TaskComponent}
 ]
 @NgModule({

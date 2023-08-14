@@ -12,10 +12,12 @@ import { UserService, taskDataType, taskStatusType } from 'src/app/services/user
 export class OrganizationslistComponent implements OnInit{
   organizationList:organizationDatatype[];
   taskdata:taskDataType[];
+
   taskstatus:taskStatusType;
 
   constructor(private organizationdataservice:OrganizationsDataService,private router:Router,private userservice:UserService){
     this.userservice.getTaskStatus()
+    this.taskstatus = this.userservice.taskstatus
   }
 
   ngOnInit(): void {

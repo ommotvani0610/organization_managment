@@ -58,6 +58,7 @@ export class UserService  implements OnInit{
 
   getTaskStatus(){
     this.taskstatus= {
+
   New:this.taskDetails?.filter((ele) => ele.taskstatus == 'New'),
   Inprogress:this.taskDetails.filter((ele) => ele.taskstatus == 'Inprogress'),
   Done:this.taskDetails.filter((ele) => ele.taskstatus === 'Done' )
