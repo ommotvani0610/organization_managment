@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="taskDetailsForm" >
+  <form [formGroup]="taskDetailsForm" (ngSubmit)="onSubmit()">
 
     <div class="mb-3">
       <label class="form-label" for="tasktype">Task type</label>
@@ -42,9 +42,9 @@
     <div class="mb-3">
       <label class="form-label" for="taskstatus">Task status</label>
       <select class="form-control" formControlName="taskstatus">
-        <option value="new">New</option>
-        <option value="inprogress">Inprogress</option>
-        <option value="done">Done</option>
+        <option value="New">New</option>
+        <option value="Inprogress">Inprogress</option>
+        <option value="Done">Done</option>
         </select>
         <span *ngIf="!taskDetailsForm.get('taskstatus')?.valid && taskDetailsForm.get('taskstatus')?.touched" class="text-danger">please enter task status</span>
     </div>
@@ -60,7 +60,7 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary" [disabled]="!this.taskDetailsForm.valid" *ngIf="this.index === -1" (click)="onSubmit()">Add task</button>
-    <button class="btn btn-success" type="submit" *ngIf="this.index !== -1" (click)="updatTaskDetail()">Update</button>
+    <button *ngIf="isEditable == 0" type="submit" class="btn btn-primary" [disabled]="!this.taskDetailsForm.valid" >Add task</button>
+    <button  *ngIf="isEditable === 1" class="btn btn-success" type="submit">Update</button>
   </form>
 </div>

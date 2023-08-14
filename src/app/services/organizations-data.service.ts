@@ -8,14 +8,15 @@ export interface organizationDatatype{
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrganizationsDataService  implements OnInit{
 organizations:organizationDatatype[]=[]
 
   constructor() {
-    const organization = JSON.parse(localStorage.getItem('Organization')!)
+    this.organizations = JSON.parse(localStorage.getItem('Organization')!)
 
-    this.organizations = Object?.values(organization)
-    
+    // = Object?.values(organization)
+
 
   }
   ngOnInit(): void {

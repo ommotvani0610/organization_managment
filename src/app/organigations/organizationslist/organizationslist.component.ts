@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { OrganizationsDataService, organizationDatatype } from 'src/app/services/organizations-data.service';
-import { UserService, taskDataType } from 'src/app/services/usersData/user.service';
+import { UserService, taskDataType, taskStatusType } from 'src/app/services/usersData/user.service';
 
 
 @Component({
@@ -12,27 +12,10 @@ import { UserService, taskDataType } from 'src/app/services/usersData/user.servi
 export class OrganizationslistComponent implements OnInit{
   organizationList:organizationDatatype[];
   taskdata:taskDataType[];
-  tasktype:number[]=[]
+  taskstatus:taskStatusType;
 
   constructor(private organizationdataservice:OrganizationsDataService,private router:Router,private userservice:UserService){
-//    let test =   userservice.taskDetails;
-// let result = test.map((ele) => console.log(ele.taskstatus))
-const temp= this.userservice.taskDetails.map((ele) => {
-
- if(ele.taskstatus==='inprogress'){
-this.tasktype.push(1)
- }
- else if(ele.taskstatus === 'done'){
-  this.tasktype.push(2)
- }
- else{
-  this.tasktype.push(0)
- }
-} )
-// this.tasktype = temp
-// console.log('this.tasktype: ', this.tasktype);
-
-
+    this.userservice.getTaskStatus()
   }
 
   ngOnInit(): void {
@@ -40,7 +23,12 @@ this.organizationList = this.organizationdataservice.organizations
   }
 
   addTask(){
-this.router.navigate(['task','edit'],{queryParams:{'allowEdit':false}})
+    this.router.navigate(['task','edit'],{queryParams:{'allowEdit':0}})
+  }
+
+  edittask(id:number){
+    this.userservice.taskid=id
+    this.router.navigate(['task','edit'],{queryParams:{'allowEdit':1}})
   }
 
 
