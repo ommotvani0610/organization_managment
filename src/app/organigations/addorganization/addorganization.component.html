@@ -1,4 +1,8 @@
 <div class="container mt-5">
+  <h3 class="text-center">organizations</h3>
+  <ul *ngFor="let organization of organizations">
+    <li>{{organization.organizationName}}</li>
+  </ul>
   <div class="m-10">
     <button class="btn btn-success" (click)="addOrganization()">Add Organization</button>
   </div>

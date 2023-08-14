@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 
 
 const routes:Routes=[
-  // {path:'' ,redirectTo:''},
+  {path:'' ,redirectTo:'home' ,pathMatch:'full'},
   {path:'home' ,component:AddorganigationComponent},
   {path:'addorganization',component:OrganigationComponent},
   {path:'OrganizationsDashboard', component:OrganizationslistComponent},
